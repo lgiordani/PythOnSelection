@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "PythOnSelection: Eval on each line",
+        "command": "pyth_on_selection_eval"
+    },
+    {
+        "caption": "PythOnSelection: Format each line",
+        "command": "pyth_on_selection_format"
+    },
+]
