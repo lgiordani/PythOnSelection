@@ -46,7 +46,7 @@ You can use all the methods of Python strings. For example `v.rjust(10)` left pa
 
 Everything works with multiple selections or multiple carets
 
-![Multiple selections](demo/02multiple.gif)
+![Multiple selections](demo/03multiple.gif)
 
 The variable `si` contains the index of the current line (starting from 0) as a string, which is useful if you want to quickly name different variables or create a 0-indexed list.
 
