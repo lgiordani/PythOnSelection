@@ -1,0 +1,27 @@
+- clear
+- write: "What if you want to index starting from 1?"
+- nl
+- nl
+- write: [
+  "The variable 'i' contains the index of the current line",
+  "as an integer, so you can perform some math on it"
+]
+- nl
+- write: "var"
+- nl
+- write: "var"
+- nl
+- write: "var"
+- nl
+- write: "var"
+- nl
+- nl
+- write: "Select the end of each line and execute: str(i + 1)."
+- set_mark: END
+- goto: [5,3]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [pyth_on_selection_eval_on_each_line, {"expr": "str(i + 1)"}]
+- delay: 500
+- delay: 1000

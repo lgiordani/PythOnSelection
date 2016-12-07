@@ -32,12 +32,35 @@ The 'Format each selection' command asks the user to input a formatted string wi
 
 ## Code execution examples
 
-* **Uppercase**: select some text and execute `v.upper()`
-* **Title**: select some text and execute `v.title()`
-* **0-indexed list**: select the beginning of some lines (multiple caret) and execute `si + _`
-* **1-indexed list**: select the beginning of some lines (multiple caret) and execute `str(i + 1) + _`
-* **Replace punctuation with space**: select some text and execute `v.translate({ord(k):_ for k in string.punctuation})`
-* **Regular expressions**: select some text and execute `re.sub(r'_', ' ', v)`
+Remember that the selection is always a string, and that the output of your command shall be either a string or a Python object that can be converted to a string.
+![Intro](demo/00intro.gif)
+
+To start select some text and then run PythOnSelection: Eval on each line giving the command `v.upper()` that executes the `upper()` Python method of the variable `v` that contains the value of the selection.
+![Uppercase](demo/01upper.gif)
+
+You can use all the methods of Python strings. For example `v.rjust(10)` left pads the selection with spaces so that the length becomes 10.
+![Left padding](demo/02rjust.gif)
+
+Everything works with multiple selections or multiple carets
+![Multiple selections](demo/02multiple.gif)
+
+The variable `si` contains the index of the current line (starting from 0) as a string, which is useful if you want to quickly name different variables or create a 0-indexed list.
+![0-indexed lists](demo/04si.gif)
+
+If you need to access the index but perform some math on it, you can use the variable `i`, that contains the index in integer form. Try to execute `str(i + 1)` to get a nice list that starts from 1.
+![1-indexed lists](demo/05idx.gif)
+
+The variable `l` contains the length of the selection, i.e. `len(v)`, as an integer. The variable `sl` is the same in string format. To insert spaces you can use `' '` or the underscore character `_` as a shortcut. For example you can execute `v + _ + sl`.
+![Length of selection](demo/06len.gif)
+
+You can use the string `format()` method to get advaced formatted output. For example try `'[{}] ({})]'.format(v, i)`
+![Simple formatting](demo/07formatting.gif)
+
+Since `'somestring'.format(v, i, ...)` is a useful command, you can access `f()`. The function `f(somestring)` is an alias for `somestring.format(**vars)`, where `vars` are the other variables: `v`, `i`, `si`, `l`, `sl`. Try to select some text and execute `f('* [{i}] {v}')`
+![Format shortcut](demo/08f.gif)
+
+Your Python expression can include the following modules: `string`, `math`, and `re`. You can try `v.translate({ord(k):_ for k in string.punctuation})` to remove all punctuation characters or `re.sub(r'_', ' ', v)` to replace all underscores with a space.
+![Using modules](demo/09modules.gif)
 
 ## Format examples
 

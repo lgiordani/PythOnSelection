@@ -1,0 +1,19 @@
+- clear
+- write: "You can use all the methods of Python strings."
+- nl
+- nl
+- set_mark: SELECT_START
+- write: "1234"
+- set_mark: SELECT_END
+- nl
+- nl
+- write: "I will execute v.rjust(10) to left pad the string with 6 spaces"
+- set_mark: END
+- goto_mark: SELECT_START
+- go: +4
+- select_from_mark: SELECT_START
+- delay: 500
+- run_command: [pyth_on_selection_eval_on_each_line, {"expr": "v.rjust(10)"}]
+- delay: 500
+- goto_mark: END
+- delay: 1000

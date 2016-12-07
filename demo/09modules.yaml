@@ -1,0 +1,28 @@
+- clear
+- write: "You can access some useful modules."
+- nl
+- nl
+- write: [
+    "Your Python expression can include the following modules:",
+    "string, math, and re."
+]
+- nl
+- write: "This.is,a:line"
+- nl
+- write: "Another&line"
+- nl
+- write: "This(text)is?full^of|punctuation+characters"
+- nl
+- write: "This#is!really@strange"
+- nl
+- nl
+- write: "Select each line and execute: v.translate({ord(k):_ for k in string.punctuation})"
+- set_mark: END
+- goto: [5,0]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [move_to, {"extend": true, "to": "eol"}]
+- run_command: [pyth_on_selection_eval_on_each_line, {"expr": "v.translate({ord(k):_ for k in string.punctuation})"}]
+- delay: 500
+- delay: 1000

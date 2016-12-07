@@ -1,0 +1,30 @@
+- clear
+- write: "There is a smart formatting shortcut."
+- nl
+- nl
+- write: [
+    "Since 'somestring'.format(v, i, ...) is a useful command,",
+    "you can access f(). The function f(somestring) is an alias",
+    "for somestring.format(**vars), where vars are the other",
+    "variables: v, i, si, l, sl."
+]
+- nl
+- write: "This is a line"
+- nl
+- write: "Another line"
+- nl
+- write: "I promise that I will stop writing"
+- nl
+- write: "Sooner or later!"
+- nl
+- nl
+- write: "Select each line and execute: f('* [{i}] {v}')"
+- set_mark: END
+- goto: [7,0]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [move_to, {"extend": true, "to": "eol"}]
+- run_command: [pyth_on_selection_eval_on_each_line, {"expr": "f('* [{i}] {v}')"}]
+- delay: 500
+- delay: 1000

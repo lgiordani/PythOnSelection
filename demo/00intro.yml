@@ -1,0 +1,14 @@
+- clear
+- write: "This is a small demo of what you can achieve with PythOnSelection."
+- delay: 1000
+- nl
+- nl
+- write: "The package allows you execute Python code on the current selection."
+- delay: 500
+- nl
+- write: [
+  "Remember that the selection is always a string, and that the output",
+  "of your command shall be either a string or a Python object that can",
+  "be converted to a string."
+]
+- delay: 1000

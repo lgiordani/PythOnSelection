@@ -1,0 +1,25 @@
+- clear
+- write: "Let's start with a single selection"
+- nl
+- nl
+- set_mark: SELECT_START
+- write: "This is the text I will use"
+- set_mark: SELECT_END
+- nl
+- nl
+- write: [
+  "I will select it and then run PythOnSelection: Eval on each line",
+  "giving the command v.upper() that executes the upper() Python method",
+  "of the variable 'v' that contains the value of the selection."
+]
+- set_mark: END
+- goto_mark: SELECT_START
+- go: +27
+- select_from_mark: SELECT_START
+- delay: 500
+- run_command: [pyth_on_selection_eval_on_each_line, {"expr": "v.upper()"}]
+- delay: 500
+- goto_mark: END
+- nl
+- write: "Lo and behold! =)"
+- delay: 1000

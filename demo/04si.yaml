@@ -1,0 +1,28 @@
+- clear
+- write: "You can access other variables."
+- nl
+- nl
+- write: [
+  "The variable 'si' contains the index of the current line",
+  "as a string, which is useful if you want to quickly name",
+  "different variables."
+]
+- nl
+- write: "var"
+- nl
+- write: "var"
+- nl
+- write: "var"
+- nl
+- write: "var"
+- nl
+- nl
+- write: "Select the end of each line and execute: si."
+- set_mark: END
+- goto: [6,3]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [pyth_on_selection_eval_on_each_line, {"expr": "si"}]
+- delay: 500
+- delay: 1000

@@ -1,0 +1,28 @@
+- clear
+- write: "Everything works with multiple selections."
+- nl
+- nl
+- write: "This is the first line"
+- nl
+- write: "This is the second line"
+- nl
+- write: "This is the third line"
+- nl
+- write: "This is the fourth line"
+- nl
+- nl
+- write: [
+  "I will use multiple carets to select text on the four lines",
+  "and then run v.upper()."
+]
+- set_mark: END
+- goto: [2,0]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [move, {"by": "word_ends", "extend": true, "forward": true}]
+- run_command: [move, {"by": "word_ends", "extend": true, "forward": true}]
+- run_command: [move, {"by": "word_ends", "extend": true, "forward": true}]
+- run_command: [pyth_on_selection_eval_on_each_line, {"expr": "v.upper()"}]
+- delay: 500
+- delay: 1000

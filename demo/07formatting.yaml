@@ -1,0 +1,26 @@
+- clear
+- write: "Formatting is very easy with Python format()."
+- nl
+- nl
+- write: "You can use format() to easily get advanced formatting."
+- nl
+- nl
+- write: "This is a line"
+- nl
+- write: "Another line"
+- nl
+- write: "We just need some text for a demo"
+- nl
+- write: "And this is the final one"
+- nl
+- nl
+- write: "Select each line and execute: '[{}] ({})]'.format(v, i)"
+- set_mark: END
+- goto: [4,0]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [move_to, {"extend": true, "to": "eol"}]
+- run_command: [pyth_on_selection_eval_on_each_line, {"expr": "'[{}] ({})]'.format(v, i)"}]
+- delay: 500
+- delay: 1000

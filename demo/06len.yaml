@@ -1,0 +1,30 @@
+- clear
+- write: "You have access to the length of the selection."
+- nl
+- nl
+- write: [
+  "The variable 'l' contains the length of the selection",
+  "i.e. len(v), as an integer. The variable 'sl' is the same",
+  "in string format. To insert spaces you can use ' ' or the",
+  "underscore character as a shortcut."
+]
+- nl
+- write: "This is a line"
+- nl
+- write: "Another line"
+- nl
+- write: "Even more text here"
+- nl
+- write: "I just can't stop typing!"
+- nl
+- nl
+- write: "Select each line and execute: v + _ + sl."
+- set_mark: END
+- goto: [7,0]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [select_lines, {"forward": true}]
+- run_command: [move_to, {"extend": true, "to": "eol"}]
+- run_command: [pyth_on_selection_eval_on_each_line, {"expr": "v + _ + sl"}]
+- delay: 500
+- delay: 1000
